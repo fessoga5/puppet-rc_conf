@@ -4,6 +4,6 @@
 #Module for install and managment ezjail on Freebsd 10! 
 #autor: fessoga5@gmail.com
 #
-class puppet-rc.conf () {
+class puppet-rc_conf () {
     #Class for puppet-rc.conf
 }

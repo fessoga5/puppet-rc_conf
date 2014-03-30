@@ -3,7 +3,7 @@
 #INSTALL SKYPE ON DESKTOP
 #
 
-define puppet-rc.conf::param (
+define puppet-rc_conf::param (
     $param,
     $value,
 )
