@@ -11,8 +11,8 @@ define puppet-rc_conf::param (
 )
 {
     $param_res = $param ?{
-        undef => ${name},
-        $param => ${param}
+        undef => $name,
+        $param => $param,
     }
     augeas {"param_${name}":
         context => "/files/etc/rc.conf",
