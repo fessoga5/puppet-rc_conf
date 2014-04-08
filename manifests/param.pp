@@ -10,12 +10,13 @@ define puppet-rc_conf::param (
     $value,
 )
 {
-    if ($param == undef){
-        $param = $name
+    $param_res = $param ?{
+        undef => ${name},
+        $param => ${param}
     }
     augeas {"param_${name}":
         context => "/files/etc/rc.conf",
-        changes => ["set ${param} '\"${value}\"'"],
-        onlyif => "match ${param}[. =~ regexp('.*${value}.*')] size == 0",
+        changes => ["set ${param_res} '\"${value}\"'"],
+        onlyif => "match ${param_res}[. =~ regexp('.*${value}.*')] size == 0",
     }
 }
